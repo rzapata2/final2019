@@ -94,23 +94,20 @@ fisher.test(gentable)
 
 
 #Results Gender Effects
-Does gender have an effect on vaccine effectivness
+Does being a female have an effect on vaccine effectivness
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ## Descriptive Results
 
-The medicine worked mainly for males and not females
+The drug increases the chance of developing aids if a female takes it.
 
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
-```{r}
-barchartGC(~infected+treatment, data=avastF, type='percent') 
-```
 
 ```{r}
-barchartGC(~infected+treatment, data=avastM, type='percent') 
+barchartGC(~infected+treatment, data=avastF, type='percent') 
 ```
 ### Numerical Descriptive Results
 
@@ -123,12 +120,7 @@ colPerc(gentable)
 rowPerc(gentable)
 ```
 
-```{r}
-gentable = xtabs(~infected+treatment, data=avastM)
-print(gentable)
-colPerc(gentable)
-rowPerc(gentable)
-```
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
@@ -138,10 +130,44 @@ chisqtestGC(~infected+treatment, data=avastF)
 fisher.test(gentable)
 ```
 
+#Results Gender Effects
+Does being a Male have an effect on vaccine effectivness
+
+<!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
+
+## Descriptive Results
+
+The drug does not increases the chance of developing aids if a male takes it.
+
+### Graphical Descriptive Results
+
+<!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
+
+```{r}
+barchartGC(~infected+treatment, data=avastM, type='percent') 
+```
+
+### Numerical Descriptive Results
+
+<!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+gentable = xtabs(~infected+treatment, data=avastM)
+print(gentable)
+colPerc(gentable)
+rowPerc(gentable)
+```
+
+## Inferential Results
+
+<!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+
 ```{r}
 chisqtestGC(~infected+treatment, data=avastM)
 fisher.test(gentable)
 ```
+
 #Results Drug Use Effects
 
 does doing drugs have an effect of vaccine effectiveness?
@@ -150,7 +176,7 @@ does doing drugs have an effect of vaccine effectiveness?
 
 ## Descriptive Results
 
-The Drug did not have an effect on those that use drugs
+The Drug definitely has an effect on those that use drugs
 
 ### Graphical Descriptive Results
 
@@ -222,10 +248,7 @@ fisher.test(gentable)
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
 
-My results determine that there is no relationship with taking the vaccine and getting aids.The odds of getting aids is .071
+My results determine that there are different outcomes when taking the abacavirinol based off your gender, sexual orientation and if you are a drug addict.
 
-For a female, the odds of getting aids is .45 as well as for the male, which shows that it doesn't matter if you are male of female.
-
-If you are addict, the odds of developing aids is 2.72, which shows, you have a higher chance to develop aids.
-
-If you are LBGt, the odds of getting aids is .35 which shows sexual preference does not matter, similar to your gender.
+If you are a female, you would not want to take abacavirinol, but if you are gay, then you would want to take it.
+If you are a drug addict, you have a higher chance of getting aids if you take abacavirinol.
